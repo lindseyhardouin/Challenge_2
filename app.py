@@ -27,7 +27,7 @@ output_path = Path("qualified_loans.csv")
 
 def save_csv():
     """ Uses the csv library to save the qualifying data as a file."""
-    
+
     with open(output_path, 'w') as csvfile:
         csvwriter = csv.writer(csvfile)
         csvwriter.writerows(row)
@@ -120,6 +120,7 @@ def save_qualifying_loans(qualifying_loans):
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # YOUR CODE HERE!
+    qualifying_loans = questionary.confirm("Do you want to save your qualifying loans?").ask()
 
 
 def run():
