@@ -26,6 +26,8 @@ from qualifier.filters.loan_to_value import filter_loan_to_value
 output_path = Path("qualified_loans.csv")
 
 def save_csv():
+    """ Uses the csv library to save the qualifying data as a file."""
+    
     with open(output_path, 'w') as csvfile:
         csvwriter = csv.writer(csvfile)
         csvwriter.writerows(row)
