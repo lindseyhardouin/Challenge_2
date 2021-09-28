@@ -9,7 +9,9 @@ Example:
 import sys
 import fire
 import questionary
+import csv
 from pathlib import Path
+
 
 from qualifier.utils.fileio import load_csv
 
@@ -23,14 +25,18 @@ from qualifier.filters.credit_score import filter_credit_score
 from qualifier.filters.debt_to_income import filter_debt_to_income
 from qualifier.filters.loan_to_value import filter_loan_to_value
 
-output_path = Path("qualified_loans.csv")
 
-def save_csv():
+def save_csv(csvpath, qualifying_loans, header):
+
     """ Uses the csv library to save the qualifying data as a file."""
 
-    with open(output_path, 'w') as csvfile:
+    with open(csvpath, 'w', newline = '') as csvfile:
         csvwriter = csv.writer(csvfile)
-        csvwriter.writerows(row)
+        csvwriter.writerow(header)
+        for loan in qualifying_loans:
+            csvwriter.writerow(loan)
+
+       
 
 def load_bank_data():
     """Ask for the file path to the latest banking data and load the CSV file.
@@ -143,8 +149,10 @@ def save_qualifying_loans(qualifying_loans):
     # YOUR CODE HERE!
     save_loans_ask = questionary.confirm("Do you want to save your qualifying loans?").ask()
     if save_loans_ask == True:
-        print("IT WORKED!!!!!!!!!!!")
-    return save_loans_ask
+        csvpath = questionary.text("Enter a file path to a qualifying loans (.csv):").ask()
+        header = ["Lender","Max Loan Amount","Max LTV","Max DTI","Min Credit Score","Interest Rate"]
+        save_csv(csvpath, qualifying_loans, header)
+
     
 
 #save_qualifying_loans(bank_data_filtered)
