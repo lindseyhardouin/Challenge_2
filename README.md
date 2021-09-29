@@ -1,33 +1,42 @@
-# Project Title
-
-Just after the title, introduce your project by describing attractively what the project is about and what is the main problem that inspires you to create this project or what is the main contribution for the potential user of your project.
+# ***Loan Qualifyer Application***
+---
+## **Introduction**
+### This program is designed to match users to loans fo rwhich they qualify. It requests the users required information and returns a list of qualifying loans which the user can then save to a csv file. 
 
 ---
 
-## Technologies
-
-Describe the technologies required to use your project such as programming languages, libraries, frameworks, and operating systems. Be sure to include the specific versions of any critical dependencies that you have used in the stable version of your project.
+## **Technologies**
+This project is created using python and uses the following libraries: 
+```sys, fire, questionary, csv, Path```
 
 ---
 
-## Installation Guide
+## **Installation Guide**
 
 In this section, you should include detailed installation notes containing code blocks and screenshots.
+To install this program, run ```python app.py``` in your terminal under the path <C/Users/Owner/Desktop/FinTech_Workspace/Challenge_2>.
+
 
 ---
 
-## Usage
+## **Usage**
 
 This section should include screenshots, code blocks, or animations explaining how to use your project.
+Afer launching the project, the user will be prompterd to answer the following questions:
+>"Enter a file path to rate-sheet."
+>"What's your credit score?"
+>"What's your current amount of monthly debt?"
+>"What's you total monthly income?"
+>"What's your desired loan amount?"
+>"What's you home value?"
+>"Do you want to save qualifying loans?"
+>"Enter a file path to a qualifying loans csv."
+---
+
+## **Contributors**
+Lindsey Hardouin
+[Email](LindseyHardouin@gmail.com)
+[Linkedin](www.linkedin.com/in/LindseyHardouin)
 
 ---
 
-## Contributors
-
-In this section, list all the people who contribute to this project. You might want recruiters or potential collaborators to reach you, so include your contact email and, optionally, your LinkedIn or Twitter profile.
-
----
-
-## License
-
-When you share a project on a repository, especially a public one, it's important to choose the right license to specify what others can and can't with your source code and files. Use this section to include the license you want to use.

@@ -1,0 +1,50 @@
+  206  python app.py
+  207  python app.py
+  208  python app.py
+  209  git add -A
+  210  git status
+  211  git commit -m "Added conditional statement based on user response to questionary.confirm.ask "Do you want to save your qualifying loans?""
+  212  git commit -m "Added conditional statement based on user response to questionary.confirm.ask 'Do you want to save your qualifying loans?'"
+  213  git status
+  214  git push origin main
+  215  python app.py
+  216  python app.py
+  217  python app.py
+  218  python app.py
+  219  python app.py
+  220  python app.py
+  221  python app.py
+  222  python app.py
+  223  python app.py
+  224  python app.py
+  225  python app.py
+  226  python app.py
+  227  python app.py
+  228  python app.py
+  229  python app.py
+  230  python app.py
+  231  python app.py
+  232  conda activate dev
+  233  python app.py
+  234  python app.py
+  235  python app.py
+  236  python app.py
+  237  python app.py
+  238  python app.py
+  239  python app.py
+  240  python app.py
+  241  python app.py
+  242  git status
+  243  git add -A
+  244  git status
+  245  git commit -m "Used csv.writer to write the list of qualifying_loans to the file path entered by the user."_
+  246  git status
+  247  git push origin main
+  248  cd ..
+  249  ls
+  250  conda list jupyter
+  251  ls
+  252  cd Challenge_2
+  253  ls
+  254  python app.py
+  255  history 50 > terminal_history.txt

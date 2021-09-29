@@ -24,18 +24,6 @@ from qualifier.filters.max_loan_size import filter_max_loan_size
 from qualifier.filters.credit_score import filter_credit_score
 from qualifier.filters.debt_to_income import filter_debt_to_income
 from qualifier.filters.loan_to_value import filter_loan_to_value
-
-
-def save_csv(csvpath, qualifying_loans, header):
-
-    """ Uses the csv library to save the qualifying data as a file."""
-
-    with open(csvpath, 'w', newline = '') as csvfile:
-        csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(header)
-        for loan in qualifying_loans:
-            csvwriter.writerow(loan)
-
        
 
 def load_bank_data():
@@ -120,8 +108,6 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 find_qualifying_loans
 
 
-
-
 def run():
     """The main function for running the script."""
 
@@ -139,23 +125,32 @@ def run():
     # Save qualifying loans
     save_qualifying_loans(qualifying_loans)
 
+
+def save_csv(csvpath, qualifying_loans, header):
+
+    """ Uses the csv library to save the qualifying data as a file."""
+
+    with open(csvpath, 'w', newline = '') as csvfile:
+        csvwriter = csv.writer(csvfile)
+        csvwriter.writerow(header)
+        for loan in qualifying_loans:
+            csvwriter.writerow(loan)
+
+
+#save_qualifying_loans(bank_data_filtered)
 def save_qualifying_loans(qualifying_loans):
     """Saves the qualifying loans to a CSV file.
 
     Args:
         qualifying_loans (list of lists): The qualifying bank loans.
     """
-    # @TODO: Complete the usability dialog for savings the CSV Files.
-    # YOUR CODE HERE!
     save_loans_ask = questionary.confirm("Do you want to save your qualifying loans?").ask()
     if save_loans_ask == True:
         csvpath = questionary.text("Enter a file path to a qualifying loans (.csv):").ask()
         header = ["Lender","Max Loan Amount","Max LTV","Max DTI","Min Credit Score","Interest Rate"]
         save_csv(csvpath, qualifying_loans, header)
-
-    
-
-#save_qualifying_loans(bank_data_filtered)
+    else:
+        sys.exit()
 
 
 
