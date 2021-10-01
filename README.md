@@ -1,7 +1,7 @@
 # ***Loan Qualifyer Application***
 ---
 ## **Introduction**
-### This program is designed to match users to loans fo rwhich they qualify. It requests the users required information and returns a list of qualifying loans which the user can then save to a csv file. 
+### This program is designed to match users to loans for which they qualify. It prompts the users to enter required information and returns a list of qualifying loans which the user can then save to a csv file. 
 
 ---
 

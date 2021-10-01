@@ -6,26 +6,29 @@ This is a command line application to match applicants with qualifying loans.
 Example:
     $ python app.py
 """
+#import libraries
 import sys
 import fire
 import questionary
 import csv
 from pathlib import Path
 
-
+#import the csv reader function from the utils folder
 from qualifier.utils.fileio import load_csv
 
+#import useful calcs from the utils folder
 from qualifier.utils.calculators import (
     calculate_monthly_debt_ratio,
     calculate_loan_to_value_ratio,
 )
 
+#import useful filters fromt he qualifier folder
 from qualifier.filters.max_loan_size import filter_max_loan_size
 from qualifier.filters.credit_score import filter_credit_score
 from qualifier.filters.debt_to_income import filter_debt_to_income
 from qualifier.filters.loan_to_value import filter_loan_to_value
        
-
+#function which asks users for the file path to the latest banking data and loads the csv file
 def load_bank_data():
     """Ask for the file path to the latest banking data and load the CSV file.
 
@@ -42,7 +45,7 @@ def load_bank_data():
     
     save_csv()
 
-
+#function which prompts the user to enter the required financial information for the loan application
 def get_applicant_info():
     """Prompt dialog to get the applicant's financial information.
 
@@ -64,7 +67,7 @@ def get_applicant_info():
 
     return credit_score, debt, income, loan_amount, home_value
 
-
+#function which matches the users financial input to a qualifying loan from the list of loans
 def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_value):
     """Determine which loans the user qualifies for.
 
@@ -125,7 +128,7 @@ def run():
     # Save qualifying loans
     save_qualifying_loans(qualifying_loans)
 
-
+#function to save the user loan data as a csv, called in the save_qualifying_loans function below
 def save_csv(csvpath, qualifying_loans, header):
 
     """ Uses the csv library to save the qualifying data as a file."""
@@ -137,7 +140,8 @@ def save_csv(csvpath, qualifying_loans, header):
             csvwriter.writerow(loan)
 
 
-#save_qualifying_loans(bank_data_filtered)
+#function which asks the user if they'd liek to save their list of qualifying loans 
+#and prompts the user to enter a file path 
 def save_qualifying_loans(qualifying_loans):
     """Saves the qualifying loans to a CSV file.
 
